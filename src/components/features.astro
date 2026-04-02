@@ -1,0 +1,140 @@
+---
+const features = [
+  {
+    id: "inventory",
+    title: "Gestión inventario",
+    subtitle: "Control total",
+    description: "Lleva el control exacto de tu stock en tiempo real. Añade productos, categorías, variantes y alertas de reposición automática.",
+    dark: true,
+  },
+  {
+    id: "dashboard",
+    title: "Dashboard",
+    subtitle: "Métricas en tiempo real",
+    description: "Visualiza tus ventas, ingresos y movimientos de stock con gráficas claras y actualizadas al instante.",
+    dark: false,
+  },
+  {
+    id: "clients",
+    title: "Clientes",
+    subtitle: "Administra clientes",
+    description: "Gestiona tu base de clientes, historial de compras y datos de contacto desde un solo lugar.",
+    dark: false,
+  },
+  {
+    id: "shipments",
+    title: "Envíos",
+    subtitle: "Controla entregas",
+    description: "Registra y monitorea cada envío. Gestiona estados, transportistas y fechas de entrega con facilidad.",
+    dark: true,
+  },
+];
+---
+
+<section class="bg-bg-soft px-10 pt-20 pb-24 font-[Poppins,sans-serif]">
+
+  <!-- Intro -->
+  <div class="max-w-275 mx-auto mb-14">
+    <p class="font-[Kodchasan,sans-serif] text-xs font-semibold tracking-[0.2em] uppercase text-[#597081] mb-3">
+      Features
+    </p>
+    <h2 class="font-[Kodchasan,sans-serif] text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-[#36494E] leading-tight">
+      Todo lo que necesitas,<br />en un solo lugar
+    </h2>
+  </div>
+
+  <!-- Grid de tarjetas -->
+  <div class="max-w-275 mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+
+    {features.map((feature) => (
+      <article
+        data-id={feature.id}
+        class={[
+          "group relative rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1",
+          feature.dark
+            ? "bg-[#36494E] shadow-[0_4px_24px_rgba(54,73,78,0.18)] hover:shadow-[0_10px_36px_rgba(54,73,78,0.28)]"
+            : "bg-[#A9CEF4] shadow-[0_4px_24px_rgba(126,160,183,0.15)] hover:shadow-[0_10px_36px_rgba(89,112,129,0.2)]",
+        ].join(" ")}
+      >
+
+        <!-- Dos columnas internas -->
+        <div class="grid grid-cols-2 min-h-50">
+
+          <!-- Columna izquierda: texto -->
+          <div class="flex flex-col justify-between gap-5 p-8">
+            <div>
+              <h3 class={[
+                "font-[Kodchasan,sans-serif] text-xl font-bold leading-tight mb-1",
+                feature.dark ? "text-white" : "text-[#36494E]",
+              ].join(" ")}>
+                {feature.title}
+              </h3>
+              <p class={[
+                "text-xs font-normal mb-3 opacity-75",
+                feature.dark ? "text-[#A9CEF4]" : "text-[#597081]",
+              ].join(" ")}>
+                {feature.subtitle}
+              </p>
+              <p class={[
+                "text-[0.82rem] leading-relaxed opacity-90",
+                feature.dark ? "text-[#d6e8f5]" : "text-[#36494E]",
+              ].join(" ")}>
+                {feature.description}
+              </p>
+            </div>
+
+            <!-- CTA -->
+            <span class={[
+              "inline-flex items-center gap-1.5 text-[0.78rem] font-semibold tracking-wide uppercase transition-[gap] duration-200 group-hover:gap-3",
+              feature.dark ? "text-[#A9CEF4]" : "text-[#36494E]",
+            ].join(" ")}>
+              Explorar
+              <svg class="w-4 h-4 shrink-0" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+
+          <!-- Columna derecha: slot para imagen -->
+          <div class="flex items-stretch">
+            <div class={[
+              "flex-1 flex items-center justify-center m-4 ml-0 rounded-lg transition-opacity duration-200",
+              feature.dark
+                ? "bg-white/6 border border-dashed border-[#A9CEF4]/30"
+                : "bg-[#36494E]/[0.07] border border-dashed border-[#36494E]/20",
+            ].join(" ")}>
+              <div class="flex flex-col items-center gap-2">
+                <svg
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class={[
+                    "w-8 h-8 opacity-40",
+                    feature.dark ? "text-[#A9CEF4]" : "text-[#36494E]",
+                  ].join(" ")}
+                >
+                  <rect x="6" y="10" width="36" height="28" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="17" cy="22" r="4" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M6 32l10-8 8 6 6-5 12 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class={[
+                  "text-[0.7rem] tracking-widest uppercase opacity-40",
+                  feature.dark ? "text-[#A9CEF4]" : "text-[#36494E]",
+                ].join(" ")}>
+                  Imagen
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Acento decorativo esquina superior derecha -->
+        <div class={[
+          "absolute top-0 right-0 w-14 h-1 rounded-bl",
+          feature.dark ? "bg-[#A9CEF4] opacity-50" : "bg-[#36494E] opacity-20",
+        ].join(" ")} />
+      </article>
+    ))}
+
+  </div>
+</section>

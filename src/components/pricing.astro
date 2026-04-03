@@ -1,0 +1,180 @@
+---
+// Pricing.astro
+---
+
+<section class="bg-(--color-bg-soft) py-16 px-6">
+  <div class="max-w-5xl mx-auto">
+
+    <!-- Header -->
+    <h2 class="text-center text-(--color-primary) font-(--font-primary) text-2xl font-bold mb-4">
+      "Planes simples y transparentes"
+    </h2>
+
+    <!-- Toggle Mensual / Anual -->
+    <div class="flex items-center justify-center gap-4 mb-12">
+      <span id="label-mensual" class="text-(--color-primary) font-(--font-secondary) text-sm cursor-pointer font-medium">
+        Mensual
+      </span>
+      <button
+        id="billing-toggle"
+        onclick="toggleBilling()"
+        class="relative w-12 h-6 bg-(--color-primary-light) rounded-full transition-colors duration-300 focus:outline-none"
+        aria-label="Toggle billing period"
+      >
+        <span
+          id="toggle-thumb"
+          class="absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform duration-300"
+        ></span>
+      </button>
+      <span id="label-anual" class="text-(--color-text-muted) font-(--font-secondary) text-sm cursor-pointer">
+        Anual <span class="text-(--color-primary-lighter) text-xs font-semibold">-20%</span>
+      </span>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- Starter -->
+      <div class="border border-(--color-border) rounded-xl p-6 bg-white flex flex-col gap-4 hover:border-(--color-primary-light) hover:shadow-md transition-all duration-200">
+        <div>
+          <h3 class="text-(--color-primary) font-(--font-primary) text-lg font-semibold">Starter</h3>
+          <div class="mt-2">
+            <span id="price-starter" class="text-(--color-primary) font-(--font-primary) text-3xl font-bold">$9</span>
+            <span class="text-(--color-text-muted) font-(--font-secondary) text-sm">/mes</span>
+          </div>
+          <p class="text-(--color-text-muted) font-(--font-secondary) text-xs mt-1">Para negocios que están comenzando</p>
+        </div>
+
+        <ul class="flex flex-col gap-2 flex-1">
+          <li class="flex items-center gap-2 text-(--color-primary) font-(--font-secondary) text-sm">
+            <span class="text-(--color-primary-light) font-bold">✓</span> 100 productos
+          </li>
+          <li class="flex items-center gap-2 text-(--color-primary) font-(--font-secondary) text-sm">
+            <span class="text-(--color-primary-light) font-bold">✓</span> Gestión básica de inventario
+          </li>
+          <li class="flex items-center gap-2 text-(--color-primary) font-(--font-secondary) text-sm">
+            <span class="text-(--color-primary-light) font-bold">✓</span> 1 integración
+          </li>
+          <li class="flex items-center gap-2 text-(--color-primary) font-(--font-secondary) text-sm">
+            <span class="text-(--color-primary-light) font-bold">✓</span> Soporte por email
+          </li>
+          <li class="flex items-center gap-2 text-(--color-primary) font-(--font-secondary) text-sm">
+            <span class="text-(--color-primary-light) font-bold">✓</span> Reportes básicos
+          </li>
+        </ul>
+
+        <a href="#" class="mt-2 block text-center border border-(--color-btn-primary) text-(--color-btn-primary) font-(--font-secondary) text-sm py-2 px-4 rounded-lg hover:bg-(--color-btn-primary) hover:text-white transition-all duration-200">
+          Elegir plan
+        </a>
+      </div>
+
+      <!-- Pro (destacado) -->
+      <div class="border-2 border-(--color-accent) rounded-xl p-6 bg-(--color-bg-dark) flex flex-col gap-4 relative shadow-lg">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-(--color-accent) text-(--color-primary) font-(--font-secondary) text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+          ⭐ Popular
+        </div>
+
+        <div>
+          <h3 class="text-(--color-text-inverse) font-(--font-primary) text-lg font-semibold">Pro</h3>
+          <div class="mt-2">
+            <span id="price-pro" class="text-(--color-text-inverse) font-(--font-primary) text-3xl font-bold">$19</span>
+            <span class="text-(--color-primary-lighter) font-(--font-secondary) text-sm">/mes</span>
+          </div>
+          <p class="text-(--color-primary-lighter) font-(--font-secondary) text-xs mt-1">Para negocios en crecimiento</p>
+        </div>
+
+        <ul class="flex flex-col gap-2 flex-1">
+          <li class="flex items-center gap-2 text-(--color-text-inverse) font-(--font-secondary) text-sm">
+            <span class="text-(--color-accent) font-bold">✓</span> Productos ilimitados
+          </li>
+          <li class="flex items-center gap-2 text-(--color-text-inverse) font-(--font-secondary) text-sm">
+            <span class="text-(--color-accent) font-bold">✓</span> Gestión avanzada de inventario
+          </li>
+          <li class="flex items-center gap-2 text-(--color-text-inverse) font-(--font-secondary) text-sm">
+            <span class="text-(--color-accent) font-bold">✓</span> Todas las integraciones
+          </li>
+          <li class="flex items-center gap-2 text-(--color-text-inverse) font-(--font-secondary) text-sm">
+            <span class="text-(--color-accent) font-bold">✓</span> Soporte prioritario
+          </li>
+          <li class="flex items-center gap-2 text-(--color-text-inverse) font-(--font-secondary) text-sm">
+            <span class="text-(--color-accent) font-bold">✓</span> Reportes avanzados
+          </li>
+        </ul>
+
+        <a href="#" class="mt-2 block text-center bg-(--color-accent) hover:bg-(--color-border-soft) text-(--color-primary) font-(--font-secondary) text-sm py-2 px-4 rounded-lg transition-all duration-200 font-semibold">
+          Elegir plan
+        </a>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="border border-(--color-border) rounded-xl p-6 bg-white flex flex-col gap-4 hover:border-(--color-primary-light) hover:shadow-md transition-all duration-200">
+        <div>
+          <h3 class="text-(--color-primary) font-(--font-primary) text-lg font-semibold">Enterprise</h3>
+          <div class="mt-2">
+            <span class="text-(--color-primary) font-(--font-primary) text-3xl font-bold">Custom</span>
+          </div>
+          <p class="text-(--color-text-muted) font-(--font-secondary) text-xs mt-1">Para grandes operaciones</p>
+        </div>
+
+        <ul class="flex flex-col gap-2 flex-1">
+          <li class="flex items-center gap-2 text-(--color-primary) font-(--font-secondary) text-sm">
+            <span class="text-(--color-primary-light) font-bold">✓</span> Todo lo del plan Pro
+          </li>
+          <li class="flex items-center gap-2 text-(--color-primary) font-(--font-secondary) text-sm">
+            <span class="text-(--color-primary-light) font-bold">✓</span> Soporte dedicado 24/7
+          </li>
+          <li class="flex items-center gap-2 text-(--color-primary) font-(--font-secondary) text-sm">
+            <span class="text-(--color-primary-light) font-bold">✓</span> SLA garantizado
+          </li>
+          <li class="flex items-center gap-2 text-(--color-primary) font-(--font-secondary) text-sm">
+            <span class="text-(--color-primary-light) font-bold">✓</span> Integraciones personalizadas
+          </li>
+          <li class="flex items-center gap-2 text-(--color-primary) font-(--font-secondary) text-sm">
+            <span class="text-(--color-primary-light) font-bold">✓</span> Onboarding dedicado
+          </li>
+        </ul>
+
+        <a href="#" class="mt-2 block text-center border border-(--color-btn-primary) text-(--color-btn-primary) font-(--font-secondary) text-sm py-2 px-4 rounded-lg hover:bg-(--color-btn-primary) hover:text-white transition-all duration-200">
+          Contactar
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  let isAnnual = false;
+
+  const prices = {
+    starter: { monthly: 9, annual: 7 },
+    pro: { monthly: 19, annual: 15 },
+  };
+
+  function toggleBilling() {
+    isAnnual = !isAnnual;
+
+    const thumb = document.getElementById('toggle-thumb') as HTMLElement;
+    const toggle = document.getElementById('billing-toggle') as HTMLElement;
+    const labelMensual = document.getElementById('label-mensual') as HTMLElement;
+    const labelAnual = document.getElementById('label-anual') as HTMLElement;
+    const priceStarter = document.getElementById('price-starter') as HTMLElement;
+    const pricePro = document.getElementById('price-pro') as HTMLElement;
+
+    if (isAnnual) {
+      thumb.style.transform = 'translateX(24px)';
+      toggle.style.backgroundColor = 'var(--color-accent)';
+      labelMensual.style.color = 'var(--color-text-muted)';
+      labelAnual.style.color = 'var(--color-primary)';
+      priceStarter.textContent = `$${prices.starter.annual}`;
+      pricePro.textContent = `$${prices.pro.annual}`;
+    } else {
+      thumb.style.transform = 'translateX(0)';
+      toggle.style.backgroundColor = 'var(--color-primary-light)';
+      labelMensual.style.color = 'var(--color-primary)';
+      labelAnual.style.color = 'var(--color-text-muted)';
+      priceStarter.textContent = `$${prices.starter.monthly}`;
+      pricePro.textContent = `$${prices.pro.monthly}`;
+    }
+  }
+</script>
